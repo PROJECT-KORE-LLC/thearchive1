@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>PROJECT KORE // THE ARCHIVE // V2.0 //</title>
+    <title>PROJECT KORE // THE ARCHIVE // V5.1 //</title>
     <style>
         :root {
             --primary: #D4AF37; 
@@ -14,6 +14,7 @@
             --unison-ease: cubic-bezier(0.45, 0.05, 0.55, 0.95);
         }
 
+        /* --- VANGUARD PALETTE ARRAY --- */
         .noir-mode { --primary: #D4AF37; --hijack-glow: rgba(229, 149, 0, 0.7); }
         .lunar-mode { --primary: #A5F2F3; --hijack-glow: rgba(0, 150, 255, 0.6); }
         .vellum-mode { --primary: #C2B280; --hijack-glow: rgba(101, 67, 33, 0.6); }
@@ -75,11 +76,13 @@
 
         .lore-entry { position: relative; margin-bottom: 25px; border-bottom: 1px solid rgba(212,175,55,0.15); padding-bottom: 15px; }
         .entry-meta { font-size: 0.6rem; color: var(--primary); opacity: 0.5; letter-spacing: 2px; margin-bottom: 6px; }
+        
         .shred-btn { position: absolute; top: 0; right: 0; background: transparent; border: none; color: var(--primary); font-size: 1.1rem; cursor: pointer; opacity: 0.4; transition: 0.3s; }
         .shred-btn:hover { opacity: 1; color: #ff4444; }
 
         .lore-input { background: rgba(0,0,0,0.6); border: none; border-left: 4px solid var(--primary); color: var(--primary); padding: 15px; outline: none; resize: none; font-family: monospace; font-size: 1rem; }
 
+        /* --- COMMAND ARRAY --- */
         .command-array { margin-top: 25px; display: flex; gap: 12px; flex-wrap: wrap; width: 100%; max-width: 950px; }
         .lux-btn { background: rgba(0,0,0,0.7); border: 1px solid var(--primary); color: var(--primary); padding: 12px; cursor: pointer; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 3px; flex: 1; text-align: center; transition: 0.4s; }
         .lux-btn:hover { background: var(--primary-glow); box-shadow: 0 0 25px var(--primary-glow); }
@@ -149,7 +152,8 @@
             archive = JSON.parse(localStorage.getItem('kore_archive')) || [];
         } catch(e) { archive = []; }
 
-        const wind = document.getElementById('waves-atmosphere');
+        // Hard-locked audio node
+        const waves = document.getElementById('waves-atmosphere');
         let atmosphereInitialized = false;
 
         window.onload = () => renderAnnals();
@@ -176,6 +180,7 @@
             container.scrollTop = container.scrollHeight;
         }
 
+        // Logic Strike: Enter to commit
         document.getElementById('lore-editor').addEventListener('keydown', function(e) {
             if (e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault();
@@ -212,6 +217,7 @@
 
         function playAtmosphere() {
             if(!atmosphereInitialized) {
+                // Audio path now hard-locked to corrected element
                 waves.volume = 0.3;
                 waves.play().then(() => { atmosphereInitialized = true; }).catch(() => {});
             }
