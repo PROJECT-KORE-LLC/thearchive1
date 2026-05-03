@@ -1,6 +1,6 @@
 const CACHE_NAME = 'kore-v5.1';
 const assets = [
-  'archive1.html',
+  'index.html',
   'ship.webp',
   'waves.mp3',
   'thumbnail1.jpg'
