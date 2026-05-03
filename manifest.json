@@ -1,16 +1,15 @@
 {
-  "name": "PROJECT KORE ARCHIVE",
-  "short_name": "KoreVault",
-  "start_url": "archive1.html",
+  "name": "PROJECT KORE ARCHIVE V5.1",
+  "short_name": "KoreV5",
+  "start_url": "archive.html",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#D4AF37",
-  "description": "Sovereign Somatic Memory Vault",
   "icons": [
     {
-      "src": "ship.webp",
-      "sizes": "512x512",
-      "type": "image/webp"
+      "src": "thumbnail1.jpg",
+      "sizes": "1024x1024",
+      "type": "image/jpeg"
     }
   ]
 }
